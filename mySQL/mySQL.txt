@@ -1,0 +1,50 @@
+// ETAPE 1 //
+
+SELECT first_name, last_name FROM users
+
+// ETAPE 2 //
+
+SELECT first_name, last_name FROM users ORDER BY last_name 
+
+// ETAPE 3 //
+
+SELECT first_name, last_name FROM users ORDER BY id DESC LIMIT 1
+
+// ETAPE 4 //
+
+SELECT first_name, last_name FROM users WHERE MONTH(birthdate) = MONTH(NOW())
+
+// ETAPE 5 //
+
+SELECT COUNT(id) FROM users
+
+
+// ETAPE 6 //
+
+SELECT users.first_name, users.last_name, addresses.city  FROM users JOIN addresses ON users.address_id = addresses.id
+
+
+// ETAPE 7 //
+
+SELECT users.first_name, users.last_name, addresses.number  FROM users JOIN addresses ON users.address_id = addresses.id WHERE number IS NULL
+
+// ETAPE 8 //
+
+SELECT * FROM products WHERE price > 1000
+
+// ETAPE 9 //
+
+SELECT products.*, pictures.* FROM products JOIN pictures ON products.id = pictures.product_id
+
+// ETAPE 10 //
+
+SELECT * FROM products 
+JOIN products_categories ON products.id = products_categories.product_id
+JOIN categories ON products_categories.category_id = categories.id 
+WHERE categories.title = "Voyage"
+
+// ETAPE 11 //
+
+
+
+// ETAPE 12 //
