@@ -45,6 +45,15 @@ WHERE categories.title = "Voyage"
 
 // ETAPE 11 //
 
-
+SELECT users.id, COUNT(orders.user_id) FROM users JOIN orders ON users.id = orders.user_id GROUP BY users.id HAVING COUNT(orders.user_id) > 10
 
 // ETAPE 12 //
+
+SELECT *
+FROM products
+JOIN products_orders ON products.id = products_orders.product_id
+JOIN orders ON products_orders.order_id = orders.id
+JOIN users ON orders.user_id = users.id   
+WHERE users.id = (SELECT id 
+                FROM users
+                ORDER BY registration_date ASC LIMIT 1)
